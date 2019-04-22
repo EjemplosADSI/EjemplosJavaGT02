@@ -9,7 +9,7 @@ public class Main {
     private Scanner sc = new Scanner(System.in);
 
     private Main() {
-        System.out.println("Entre al contructor...");
+        System.out.println("Entre al constructor..."); //Codigo que se ejecuta cuando se llama al constructor
     }
 
     public static void main(String[] args) {
@@ -25,9 +25,9 @@ public class Main {
         int num1 = 10;          //Variables
 
         ejemploStatic(); //Metodo Estatico
-        Main mn = new Main(); //Instanciar la clase actual para llamar los metodos
+        Main mn = new Main(); //Instanciar la clase actual para llamar los metodos => Se llama al constructor
 
-        tiposDeDatos();
+        tiposDeDatos(); //Llamado a metodo estatico
 
         /* Arrays */
         int[] numeros = { 1, 2, 3, 4, 5 };  //Array Con Datos predeterminados.
@@ -40,17 +40,21 @@ public class Main {
         matrizNumerica[0][1] = 15;                      //Asignacion de Datos.
 
 
-        mn.ejemploCondicionales();
+        /*mn.ejemploCondicionales();
         mn.ejemploSwitch();
         mn.ejemploWhile();
         mn.ejemploDoWhile();
         mn.ejemploFor();
         mn.ejemploForEach();
-        mn.ejemploRecursionFactiorial(5);   //Numero del factorial
+        mn.ejemploBreakContinue();
+        int resultado = mn.ejemploRecursionFactiorial(Numero);
+        System.out.println("El factorial de "+Numero+" es: "+resultado);
         mn.ejemploTryCatch();
         mn.ejemploVector();
         mn.ejemploMatrices();
-        mn.ejemploArrayList();
+        mn.ejemploArrayList();*/
+
+        mn.ejemploMenu();
 
     }
 
@@ -90,6 +94,7 @@ public class Main {
         // int num = sc.nextInt(); //SC NO ES STATICO...
     }
 
+    /* Mayor de Edad y Ciclo de Vida */
     private void ejemploCondicionales(){
 
         System.out.println("Ingrese su edad... ");
@@ -117,6 +122,7 @@ public class Main {
         
     }
 
+    /* Operar dos numeros */
     private void ejemploSwitch(){
 
         final String SUMA = "+";
@@ -131,7 +137,7 @@ public class Main {
         int N2 = sc.nextInt();
 
         System.out.println("Ingrese un operador ... ");
-        String Operador = sc.nextLine();
+        String Operador = sc.next();
 
         double Resultado = 0.0;
 
@@ -160,6 +166,7 @@ public class Main {
 
     }
 
+    /* Cuenta Regresiva desde un numero */
     private void ejemploWhile() {
         System.out.println("Ingrese un numero desde el que desea la cuenta regresiva...");
         int Num = sc.nextInt();
@@ -172,19 +179,21 @@ public class Main {
         System.out.println("Conteo Finalizado");
     }
 
+    /* Cuenta Asendente hasta un numero */
     private void ejemploDoWhile() {
         System.out.println("Ingrese un numero desde el que desea la cuenta...");
         int Num = sc.nextInt();
         int numConteo = 0;
 
         do {
-            System.out.print("0");
+            System.out.print(numConteo);
             numConteo++;
         }while (numConteo != Num);
 
         System.out.println("Conteo Finalizado");
     }
 
+    /* Tabla de Multiplicar de un numero */
     private void ejemploFor() {
         System.out.println("Ingrese un numero para imprimir su tabla de multiplicar");
         int Num = sc.nextInt();
@@ -196,6 +205,7 @@ public class Main {
         System.out.println("Tabla Finalizada");
     }
 
+    /* Dias de la semana */
     private void ejemploForEach() {
         System.out.println("Mostrando los dias de la semana...");
         String [] arrDias = {"Lunes","Martes","Miercoles","Jueves","Viernes","Sabado","Domingo"};
@@ -208,6 +218,26 @@ public class Main {
         System.out.println("Semana Finalizada");
     }
 
+    /* Saltar y Continuar en un Ciclo */
+    private void ejemploBreakContinue() {
+        int NSalir = 20;
+        int NSaltar = 10;
+
+        for (int j=1; j<=30; j++) {
+            if (j == NSalir) {
+                break;
+            }
+
+            if (j == NSaltar){
+                continue;
+            }
+
+            System.out.print(j+"-");
+        }
+
+    }
+
+    /* Factorial de un Numero sin Ciclo */
     private int ejemploRecursionFactiorial(int n) {
         if (n == 0) {
             return 1; //Valor Final
@@ -227,7 +257,7 @@ public class Main {
                 if(Numero > 0 && Numero <= 10){
                     DatoCorrecto = true;
                 }else{
-                    throw new Exception("El numero no esta comprendido entre 0 y 10");
+                    throw new Exception("El numero no esta comprendido entre 1 y 10");
                 }
                 System.out.println("El numero es: "+Numero);
             }catch (NumberFormatException NFE){
@@ -251,21 +281,21 @@ public class Main {
         int NumMultiplo = sc.nextInt();
 
         /* Llenar vector */
-        for (int a=0; a <= vecNumeros.length; a++){
+        for (int a=0; a < vecNumeros.length; a++){
             System.out.println("Ingrese el numero: "+(a+1));
             vecNumeros[a] = sc.nextInt();
             //vecResultado[a] = vecNumeros[a] * NumMultiplo;
         }
 
         /* Operar vector */
-        for (int b=0; b <= vecResultado.length; b++){
+        for (int b=0; b < vecResultado.length; b++){
             vecResultado[b] = vecNumeros[b] * NumMultiplo;
             //System.out.println(vecNumeros[b]+" * "+NumMultiplo+" es: "+vecResultado[b]);
         }
 
         /* Imprimir vector */
-        for (int c=0; c <= vecResultado.length; c++){
-            System.out.println(vecNumeros[c]+" * "+NumMultiplo+" es: "+vecResultado[c]);
+        for (int c=0; c < vecResultado.length; c++){
+            System.out.println(vecNumeros[c]+" \t* "+NumMultiplo+" es: "+vecResultado[c]);
         }
 
     }
@@ -333,6 +363,100 @@ public class Main {
             System.out.println("Vector Vacio !!!");
         }
 
+    }
+
+    public void ejemploMenu() {
+        int opcion = 0;
+        do {
+            System.out.println("\n|------------------------------------------------------|");
+            System.out.println("|                 * Ejemplos de Java *                  |");
+            System.out.println("|---------------------------|---------------------------|");
+            System.out.println("| 1. Mayor de Edad y Ciclo de Vida  => If-Elseif        |");
+            System.out.println("| 2. Operar Dos Numeros             => Switch           |");
+            System.out.println("| 3. Cuenta Regresiva               => While            |");
+            System.out.println("| 4. Contar Hasta un numero         => Do-While         |");
+            System.out.println("| 5. Tabla de Multiplicar           => For              |");
+            System.out.println("| 6. Dias de la Semana              => ForEach          |");
+            System.out.println("| 7. Saltar y Continuar Numero      => Break, Continue  |");
+            System.out.println("| 8. Factorial de un numero         => Recursion        |");
+            System.out.println("| 9. Validar un numero              => Try - Catch      |");
+            System.out.println("| 10. Multiplicar Numeros           => Vectores         |");
+            System.out.println("| 11. Tablas de Multiplicar         => Matrices         |");
+            System.out.println("| 12. Gestor de Nombres             => ArrayList        |");
+            System.out.println("| 13. Salir                                             |");
+            System.out.println("|---------------------------|---------------------------|");
+            opcion = getValidNumber();
+            if (opcion > 0 && opcion <= 13){
+                switchMenu(opcion);
+            }else{
+                System.err.println("La opcion es incorrecta solo numeros entre 1 y 13");
+                opcion = 0;
+            }
+        }while (opcion != 13);
+    }
+
+    /* metodo para validar un numero */
+    public int getValidNumber(){
+        int Numero = 0;
+        boolean DatoCorrecto = false;
+        while (DatoCorrecto == false){
+            try {
+                System.out.println("Ingrese un numero entero por favor");
+                Numero = Integer.parseInt(sc.nextLine());
+                DatoCorrecto = true;
+            }catch (NumberFormatException NFE){
+                System.err.println("El dato ingresado no es un numero... ");
+            }catch (Exception Ex){
+                System.err.println("Ha Ocurido Error: "+Ex.getMessage());
+            }
+        }
+        return Numero;
+    }
+
+    public void switchMenu(int Opcion){
+        Main mn = new Main();
+        switch (Opcion){
+            case 1:
+                mn.ejemploCondicionales();
+                break;
+            case 2:
+                mn.ejemploSwitch();
+                break;
+            case 3:
+                mn.ejemploWhile();
+                break;
+            case 4:
+                mn.ejemploDoWhile();
+                break;
+            case 5:
+                mn.ejemploFor();
+                break;
+            case 6:
+                mn.ejemploForEach();
+                break;
+            case 7:
+                mn.ejemploBreakContinue();
+                break;
+            case 8:
+                int Numero = getValidNumber();
+                int resultado = mn.ejemploRecursionFactiorial(Numero);
+                System.out.println("El factorial de "+Numero+" es: "+resultado);
+                break;
+            case 9:
+                mn.ejemploTryCatch();
+                break;
+            case 10:
+                mn.ejemploVector();
+                break;
+            case 11:
+                mn.ejemploMatrices();
+                break;
+            case 12:
+                mn.ejemploArrayList();
+                break;
+            default:
+                System.err.println("Opcion no Valida");
+        }
     }
 
 }
