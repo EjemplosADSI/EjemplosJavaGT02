@@ -1,5 +1,7 @@
 package com.sena;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
@@ -8,13 +10,20 @@ public class Main {
 
     private Scanner sc = new Scanner(System.in);
 
+    /*
+    Constructor por defecto
+    */
     private Main() {
+        System.out.println("Entre al constructor..."); //Codigo que se ejecuta cuando se llama al constructor
+    }
+
+    /* Constructor con parametros */
+    private Main(int a) {
         System.out.println("Entre al constructor..."); //Codigo que se ejecuta cuando se llama al constructor
     }
 
     public static void main(String[] args) {
         // Esto es un comentario de una sola linea
-
         /*
          * Esto es un comentario de
          * multiples lineas
@@ -23,8 +32,9 @@ public class Main {
 
         final double PI = 3.14; //Constantes
         int num1 = 10;          //Variables
+        String hola;
 
-        ejemploStatic(); //Metodo Estatico
+        Main.ejemploStatic(); //Metodo Estatico
         Main mn = new Main(); //Instanciar la clase actual para llamar los metodos => Se llama al constructor
 
         tiposDeDatos(); //Llamado a metodo estatico
@@ -35,24 +45,24 @@ public class Main {
         arrSuma[1] = 10;                    //Asiganacion de Datos.
 
         /* Matrices */
-        int [][] matrizNumerica = {{1,2,3},{4,5,6}};    //Matriz con datos predeterminados de 2 * 3
+        int [][] matrizNumerica = { {1,2,3}, {4,5,6}, {7,8,9} };    //Matriz con datos predeterminados de 2 * 3
         int [][] matNumerica = new int[3][2];           //Matriz con datos predeterminados de 2 * 3
         matrizNumerica[0][1] = 15;                      //Asignacion de Datos.
 
 
-        /*mn.ejemploCondicionales();
+        mn.ejemploCondicionales();
         mn.ejemploSwitch();
         mn.ejemploWhile();
         mn.ejemploDoWhile();
         mn.ejemploFor();
         mn.ejemploForEach();
         mn.ejemploBreakContinue();
-        int resultado = mn.ejemploRecursionFactiorial(Numero);
-        System.out.println("El factorial de "+Numero+" es: "+resultado);
+        int resultado = mn.ejemploRecursionFactiorial(5);
+        System.out.println("El factorial de 5 es: "+resultado);
         mn.ejemploTryCatch();
         mn.ejemploVector();
         mn.ejemploMatrices();
-        mn.ejemploArrayList();*/
+        mn.ejemploArrayList();
 
         mn.ejemploMenu();
 
@@ -69,11 +79,12 @@ public class Main {
         long    varLong     = 15987;        // 8 bytes      -   -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
         float   varFloat    = 3.8f;         // 4 bytes      -   +1.5 Χ 10-45 to +3.4 Χ 1038
         double  varDouble   = 3.4;          // 8 bytes      -   +5.0e-324 to +1.7e308
-        boolean varBoolean  = true;         // True or false
+        boolean varBoolean  = true;         // 1 byte       -   True or false
 
         /* Datos Objetos */
         Object  varObject   = new Object(); // Tipo de Dato Object
         String  varString   = "Hola";       // Zero or more Unicode characters
+        Character ch = 'h';
 
         /*System.out.println(varByte+" - "+((Object) varByte).getClass().getName());
         System.out.println(varChar+" - "+((Object) varChar).getClass().getName());
@@ -91,7 +102,7 @@ public class Main {
 
     private static void ejemploStatic(){
         System.out.println("Este es un metodo statico sus variables deben ser estaticas");
-        // int num = sc.nextInt(); //SC NO ES STATICO...
+        //int num = sc.nextInt(); //SC NO ES STATICO...
     }
 
     /* Mayor de Edad y Ciclo de Vida */
