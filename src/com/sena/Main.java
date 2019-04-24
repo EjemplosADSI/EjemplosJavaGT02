@@ -23,6 +23,13 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        Main mn = new Main(); //Instanciar la clase actual para llamar los metodos => Se llama al constructor
+        //mn.sintaxisBasica();
+        mn.ejemploMenu();
+
+    }
+
+    public void sintaxisBasica (){
         // Esto es un comentario de una sola linea
         /*
          * Esto es un comentario de
@@ -36,6 +43,7 @@ public class Main {
 
         Main.ejemploStatic(); //Metodo Estatico
         Main mn = new Main(); //Instanciar la clase actual para llamar los metodos => Se llama al constructor
+        mn.ejemploCondicionales(); //Llamar a un metodo atravez de la instancia
 
         tiposDeDatos(); //Llamado a metodo estatico
 
@@ -48,7 +56,6 @@ public class Main {
         int [][] matrizNumerica = { {1,2,3}, {4,5,6}, {7,8,9} };    //Matriz con datos predeterminados de 2 * 3
         int [][] matNumerica = new int[3][2];           //Matriz con datos predeterminados de 2 * 3
         matrizNumerica[0][1] = 15;                      //Asignacion de Datos.
-
 
         mn.ejemploCondicionales();
         mn.ejemploSwitch();
@@ -63,9 +70,6 @@ public class Main {
         mn.ejemploVector();
         mn.ejemploMatrices();
         mn.ejemploArrayList();
-
-        mn.ejemploMenu();
-
     }
 
     private static void tiposDeDatos (){
@@ -464,6 +468,9 @@ public class Main {
                 break;
             case 12:
                 mn.ejemploArrayList();
+                break;
+            case 13:
+                System.out.println("\u001B[33mPrograma Finalizado"); //Los colores pueden ser:
                 break;
             default:
                 System.err.println("Opcion no Valida");
